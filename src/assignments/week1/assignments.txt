@@ -1,0 +1,37 @@
+1) Given an array of integers sorted in non-decreasing order, return an array of the squares of each number, also in sorted non-decreasing order.
+
+Input: [-8,-3,4,3,10]
+Output: [9,9,16,64,100]
+
+
+2) Given an array of integers, a lucky integer is an integer which has a frequency in the array equal to its value.
+
+Return a lucky integer in the array. If there are multiple lucky integers return the largest of them. If there is no lucky integer return -1.
+
+Input: [1,2,3,3,4,4,4,4,5]
+Output: 4
+Explanation: 1, 2 and 4 are all lucky numbers, but 4 is the largest
+
+3) Given an array, return true if and only if the given array A is monotonic.
+
+An array is monotonic if it is either monotone increasing or monotone decreasing.
+
+Input: [1,2,3,3,4,4,4,4,5]
+Output: true
+
+Input: [1,2,5,3,4,4,4,4,5]
+Output: false
+
+Input: [5,4,4,2,1]
+Output: true
+
+4) Find the kth largest element in an unsorted array. 
+Note: It is kth largest element in the sorted order, not the kth distinct element.
+
+Input: [3,2,3,1,2,4,5,5,6] and k = 3
+Output: 5
+
+5) Find all the missing numbers in the given array
+
+Input: [4,3,2,7,8,2,3,1]
+Output: [5,6]
