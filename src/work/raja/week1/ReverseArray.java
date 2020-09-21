@@ -1,4 +1,4 @@
-package work.raja.week1;
+package src.work.raja.week1;
 
 import static org.junit.Assert.*;
 
