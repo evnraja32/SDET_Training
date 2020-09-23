@@ -41,7 +41,7 @@ public class HighestSumOfK {
 //		Assert.assertThrows(message, expectedThrowable, runnable)
 	}
 
-	private int calculateMaxSum1(int k, int[] input) {
+	private int calculateMaxSum_bruetForce(int k, int[] input) {
 
 		int index = 0;
 		int sum = 0;
@@ -64,13 +64,14 @@ public class HighestSumOfK {
 
 		int maxNumber = 0;
 		int sum = 0;
+		
+		// initial loop - adding 3 numbers 0, 1, 2
 		for (int i = 0; i < k; i++)
 			sum += input[i];
-
+		maxNumber = sum;
+		 
 		for (int i = k; i < input.length; i++) {
 			sum += (input[i] - input[i - k]);
-//			if (sum > maxNumber)
-//				maxNumber = sum;
 			maxNumber = Math.max(sum, maxNumber);
 		}
 
