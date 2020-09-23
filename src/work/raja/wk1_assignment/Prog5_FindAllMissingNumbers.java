@@ -1,4 +1,4 @@
-package src.work.raja.assignment;
+package src.work.raja.wk1_assignment;
 
 import java.util.Arrays;
 import java.util.HashMap;
