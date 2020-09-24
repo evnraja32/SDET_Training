@@ -38,7 +38,7 @@ public class Prog4_FindKthLargestNumber {
 		if(input.length < k)
 			throw new IllegalArgumentException("Input length is not sufficient");
 		
-		SortingLogics.simpleSorting(input);
+		SortingLogics.simpleSorting(input); // O[N^2]
 		return input[input.length - k];
 	}
 
