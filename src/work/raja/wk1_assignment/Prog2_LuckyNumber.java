@@ -27,6 +27,8 @@ public class Prog2_LuckyNumber {
 
 	@Test
 	public void test2() {
+
+		// ordered set with no lucky number
 		int[] input = { 1, 1, 2, 3, 3, 4, 4, 4, 4, 4, 5 };
 		int expected = -1;
 		int actual = findLuckyNumber_brueteForce(input);
@@ -36,6 +38,8 @@ public class Prog2_LuckyNumber {
 
 	@Test
 	public void test3() {
+
+		// Ordered set with more than one lucky number
 		int[] input = { 1, 2, 3, 3, 3, 4, 4, 4, 4, 5 };
 		int expected = 4;
 		int actual = findLuckyNumber_brueteForce(input);
@@ -45,6 +49,8 @@ public class Prog2_LuckyNumber {
 
 	@Test
 	public void test4() {
+
+		// un-ordered set
 		int[] input = { 4, 4, 2, 4, 5, 3, 1, 3, 3, 4 };
 		int expected = 4;
 		int actual = findLuckyNumber_brueteForce(input);
@@ -54,10 +60,21 @@ public class Prog2_LuckyNumber {
 
 	@Test
 	public void test5() {
+		// Mixed un-ordered set with more than one lucky number
 		int[] input = { 3, 3, 3, 4, 5, 4, 5, 4, 5, 4, 5, 6, 5, 6, 7, 6, 8, 6, 9, 6, 9, 6, 10, 11, 12 };
 		int expected = 6;
 		int actual = findLuckyNumber_brueteForce(input);
 		Assert.assertEquals(expected, actual);
+		assertEquals(expected, findLuckyNumber_hash(input));
+	}
+
+	@Test
+	public void test6() {
+		// Mixed un-ordered set with more than one lucky number
+		int[] input = { 4, 4, 4, 4, 5, 5, 5, 5, 5, 5 };
+		int expected = 4;
+//		int actual = findLuckyNumber_brueteForce(input);
+//		Assert.assertEquals(expected, actual);
 		assertEquals(expected, findLuckyNumber_hash(input));
 	}
 
@@ -79,19 +96,31 @@ public class Prog2_LuckyNumber {
 		return luckyNumber;
 	}
 
+	/**
+	 * Complexity : O[N]
+	 * 
+	 * @param input
+	 * @return
+	 */
 	private int findLuckyNumber_hash(int[] input) {
 		int luckyNumber = -1;
 
-		HashMap<Integer, Integer> set = new HashMap<Integer, Integer>();
+		HashMap<Integer, Integer> collection = new HashMap<Integer, Integer>();
 		for (int i = 0; i < input.length; i++) {
+
+			// lucky number value collection
 			int key = input[i];
-			int value = (set.containsKey(key)) ? set.get(key) + 1 : 1;
-			set.put(key, value);
+			int value = (collection.containsKey(key)) ? collection.get(key) + 1 : 1;
+			collection.put(key, value);
+
+			// if key and value equal it is the lucky number so, replace the current lucky
+			// number
 			if (key == value) {
 				luckyNumber = Math.max(luckyNumber, key);
 			}
 		}
 
-		return (set.get(luckyNumber) == luckyNumber)? luckyNumber : -1;
+		// final verification
+		return (collection.get(luckyNumber) == luckyNumber) ? luckyNumber : -1;
 	}
 }

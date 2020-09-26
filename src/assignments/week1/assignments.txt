@@ -9,7 +9,6 @@ Output: [9,9,16,64,100]
 Return a lucky integer in the array. If there are multiple lucky integers return the largest of them. If there is no lucky integer return -1.
 
 Input: [1,1,2,3,3,4,4,4,4,5]
-Freqe: [-1,-1,-1,-1,-1,-1,-1]
 
 // decision factors:
 	frequent check on the count, // frequency += 1 ; ( num == frequency )

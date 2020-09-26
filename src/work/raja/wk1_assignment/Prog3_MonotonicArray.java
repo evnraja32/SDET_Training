@@ -42,7 +42,7 @@ public class Prog3_MonotonicArray {
 			// flag < 0 represents - to check for increasing sequence other wise
 			// decreasing sequence
 			result = ((flag < 0) ? (input[i - 1] < input[i]) : (input[i - 1] > input[i]));
-			if (result == false)
+			if (!result) // when result = false
 				return false;
 		}
 		return result;

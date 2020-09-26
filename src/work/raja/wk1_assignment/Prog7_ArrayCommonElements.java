@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
@@ -59,6 +60,35 @@ public class Prog7_ArrayCommonElements {
 		assertArrayEquals(expecteds, actuals);
 	}
 
+	private int[] findCommonArray_hashMethod2(int[] arr1, int[] arr2, int[] arr3) {
+
+		int[] result = {};
+
+		// Initializing 2D array for easy processing
+		int[][] input = { arr1, arr2, arr3 };
+
+		// Processing vars
+		HashSet<Integer> arrayResigter = new HashSet<Integer>();
+		int key = 0, value = 0;
+
+		// Find the sorted property of Arrays - O[N^2]
+		for (int i = 0; i < input.length; i++) {
+			for (int j = 0; j < input[i].length - 1; j++) {
+				if (!(input[i][j] < input[i][j + 1]))
+					throw new IllegalArgumentException("Invalid Input, input array must be increasing order array !!!");
+
+				if (i == 0)
+					arrayResigter.add(key);
+				else {
+					
+				}
+			}
+		}
+
+		System.out.println("array are sorted");
+		return result;
+	}
+
 	private int[] findCommonArray_hashMethod(int[] arr1, int[] arr2, int[] arr3) {
 
 		int[] result = {};
@@ -73,13 +103,15 @@ public class Prog7_ArrayCommonElements {
 		// Find the sorted property of Arrays - O[N^2]
 		for (int i = 0; i < input.length; i++) {
 			for (int j = 0; j < input[i].length - 1; j++) {
-
 				if (!(input[i][j] < input[i][j + 1]))
 					throw new IllegalArgumentException("Invalid Input, input array must be increasing order array !!!");
 
+				// Check for the presence of key value, then increase the occurence count
 				key = input[i][j];
 				value = arrayResigterMap.containsKey(key) ? arrayResigterMap.get(key) + 1 : 1;
 				arrayResigterMap.put(key, value);
+				System.out.println(i + " - " + j + " | " + input[i][j] + " < " + input[i][j + 1] + " - "
+						+ arrayResigterMap.get(key));
 			}
 			int j = input[i].length - 1;
 			key = input[i][j];
@@ -90,8 +122,8 @@ public class Prog7_ArrayCommonElements {
 		Iterator<Entry<Integer, Integer>> it = arrayResigterMap.entrySet().iterator();
 		while (it.hasNext()) {
 			Entry<Integer, Integer> set = it.next();
+			System.out.println(set.getKey() + " - " + set.getValue());
 			if (set.getValue() == 3) {
-				System.out.println(set.getKey() + " - " + set.getValue());
 				result = Arrays.copyOf(result, result.length + 1);
 				result[result.length - 1] = set.getKey();
 			}

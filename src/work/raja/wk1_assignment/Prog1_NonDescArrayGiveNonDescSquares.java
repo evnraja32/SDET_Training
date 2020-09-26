@@ -109,6 +109,10 @@ public class Prog1_NonDescArrayGiveNonDescSquares {
 				throw new IllegalArgumentException("Invalid input, array must be in non-decreasing order !!!");
 
 			result[i] = (input[i] * input[i]);
+			
+			//=> line here increases complexity to O[N * N logN] => O[N^2 logN]
+			// Shifting line to end
+			// Arrays.sort(result); // O[N log N] 
 		}
 		
 		Arrays.sort(result); // O[N log N]
