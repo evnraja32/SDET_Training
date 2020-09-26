@@ -45,11 +45,8 @@ public class Prog3_MonotonicArray {
 			if (result == false)
 				return false;
 		}
-
 		return result;
 	}
-	
-	
 
 	@Test
 	public void test1() {
@@ -62,6 +59,14 @@ public class Prog3_MonotonicArray {
 	@Test
 	public void test2() {
 		int[] input = { 5, 5, 4, 3, 2, 1 };
+		boolean expected = true;
+		boolean actual = findMonotonicArray_SlidingWindow(input);
+		Assert.assertEquals(expected, actual);
+	}
+
+	@Test
+	public void test6() {
+		int[] input = { 1, 1, 1, 1, 1, 1, 2 };
 		boolean expected = true;
 		boolean actual = findMonotonicArray_SlidingWindow(input);
 		Assert.assertEquals(expected, actual);
