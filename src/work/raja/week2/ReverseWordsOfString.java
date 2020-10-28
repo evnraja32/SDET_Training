@@ -30,6 +30,14 @@ public class ReverseWordsOfString {
 		assertEquals(expected, actual);
 	}
 
+	@Test
+	public void test4() { // a 3-line sentence
+		String input = "This is the first day\nIn the new office @ chennai\nIt is going to be excited";
+		String expected = "sihT si eht tsrif yad\nnI eht wen eciffo @ iannehc\ntI si gniog ot eb deticxe";
+		String actual = process(input);
+		assertEquals(expected, actual);
+	}
+
 	private String process(String input) {
 		String output = "";
 
@@ -37,28 +45,29 @@ public class ReverseWordsOfString {
 		input = input.trim();
 
 		// initialize loop params
-		String temp = "";
+		String tempWord = "";
 		int index = 0;
 		char currentChar;
 
 		do {
 			currentChar = input.charAt(index);
 
-			// prepend each current char to temp
-			temp = currentChar + temp;
-
 			// if current char is space or End Of String
-			if (currentChar == ' ' || index == (input.length() - 1)) {
+			if (currentChar == ' ' || currentChar == '\t' || currentChar == '\n') {
 
 				// append temp + space string end of output
-				output = output + temp.trim() + ' ';
-				temp = "";
+				output = output + tempWord + currentChar;
+				tempWord = "";
+				continue;
 			}
+			
+			// prepend each current char to temp
+			tempWord = currentChar + tempWord;
 
 			// end loop when index reach string length
 		} while ((++index) < input.length());
 
-		return output.trim();
+		return (output + tempWord);
 	}
 
 }

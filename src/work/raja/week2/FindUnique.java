@@ -11,7 +11,6 @@ public class FindUnique {
 	@Test
 	public void test() {
 		String name = "raja";
-
 		System.out.println(Arrays.toString(findUnique(name)));
 	}
 
